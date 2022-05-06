@@ -1,0 +1,9 @@
+.vs/
+bin/
+obj/
+Publish/
+dist/
+
+*.user
+node_modules
+package-lock.json
