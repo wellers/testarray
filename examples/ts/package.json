@@ -8,7 +8,7 @@
 		"test": "node --loader ts-node/esm test/index.test.ts"
 	},
 	"dependencies": {		
-		"@wellers/testarray": "1.0.3"
+		"@wellers/testarray": "^1.0.0"
 	},
 	"devDependencies": {
 		"@types/node": "17.0.31",

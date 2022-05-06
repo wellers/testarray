@@ -1,11 +1,12 @@
 {
 	"name": "@wellers/testarray",
 	"description": "Helper functions to help make testing with Node.js Test Runner module easier.",	
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"author": "Paul Welbourne",
 	"type": "module",
 	"license": "ISC",
 	"main": "dist/index.js",
+	"types": "src/index.d.ts",
 	"scripts": {
 		"build": "tsc",
 		"test": "node --loader ts-node/esm test/index.test.ts"		
