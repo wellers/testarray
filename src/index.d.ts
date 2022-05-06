@@ -10,6 +10,8 @@ declare module '@wellers/testarray' {
 		todo?: string | boolean;
 		args: any;
 	};
+
 	export function testArray(tests: Test[], func: Function): void;
+
 	export default testArray;
 }
