@@ -8,6 +8,6 @@
 		"test": "node test/index.test.js"
 	},
 	"dependencies": {		
-		"@wellers/testarray": "^1.0.0"
+		"@wellers/testarray": "latest"
 	}
 }
