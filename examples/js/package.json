@@ -1,12 +1,13 @@
 {
-	"name": "example-app",
+	"name": "example-js-app",
 	"description": "An example app utilising the testArray() function.",
+	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
-		"link": "npm link ..",
+		"link": "npm link ../..",
 		"test": "node test/index.test.js"
 	},
 	"dependencies": {		
-		"@wellers/testarray": "1.0.0"
+		"@wellers/testarray": "1.0.3"
 	}
 }

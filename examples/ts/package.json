@@ -1,0 +1,18 @@
+{
+	"name": "example-ts-app",
+	"description": "An example app utilising the testArray() function.",
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"link": "npm link ../..",
+		"test": "node --loader ts-node/esm test/index.test.ts"
+	},
+	"dependencies": {		
+		"@wellers/testarray": "1.0.3"
+	},
+	"devDependencies": {
+		"@types/node": "17.0.31",
+		"ts-node": "10.7.0",
+		"typescript": "4.6.4"
+	}
+}
