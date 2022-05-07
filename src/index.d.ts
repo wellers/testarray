@@ -12,4 +12,5 @@ declare module '@wellers/testarray' {
 	};
 
 	export function testArray(tests: Test[], func: Function): void;	
+	export default testArray;
 }
