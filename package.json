@@ -1,7 +1,7 @@
 {
 	"name": "@wellers/testarray",
 	"description": "Helper functions to help make testing with Node.js Test Runner module easier.",	
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"author": "Paul Welbourne",		
 	"type": "module",
 	"license": "ISC",		
