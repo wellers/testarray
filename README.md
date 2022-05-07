@@ -74,9 +74,9 @@ testArray(tests, test => {
 	* name - `string` - Name of the test
 	* timeout - `number` - Timeout in ms for this specific test.
 	* before - `function` or `async function` - Execute a function prior to execution of the test.
-	* after - `function` or `async function` - Execute a function after the execute of the test.
+	* after - `function` or `async function` - Execute a function after the execution of the test.
 	* concurrency - `number` - The number of tests that can be run at the same time. Default: 1.
-	* only - `boolean` - Only execute this test.
+	* only - `boolean` - Only execute this test. `--test-only` command-line option is required when running tests to use this option.
 	* skip - `boolean` - Skip this test.
 	* todo - `boolean` or `string` - If truthy, the test marked as TODO. If a string is provided, that string is displayed in the test results as the reason why the test is TODO.
 	* args - `object`, `function` or `async function` - Definition of the test data which will be passed to the `func`.
