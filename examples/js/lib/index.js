@@ -12,4 +12,4 @@ const isValidEmail = (/** @type {string} */ email) => {
 	return true;
 }
 
-export { isValidEmail };
+module.exports = { isValidEmail };

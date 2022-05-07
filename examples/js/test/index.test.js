@@ -1,7 +1,7 @@
 // @ts-check
-import { strictEqual } from 'assert';
-import testArray from '@wellers/testarray'
-import { isValidEmail } from '../lib/index.js';
+const { strictEqual } = require('assert');
+const { testArray } = require('@wellers/testarray');
+const { isValidEmail } = require('../lib/index.js');
 
 const tests = [
 	{
