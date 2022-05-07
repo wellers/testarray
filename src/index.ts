@@ -77,5 +77,3 @@ export const testArray = (tests: Test[], func: Function) => {
 		});
 	});
 }
-
-export default testArray;
