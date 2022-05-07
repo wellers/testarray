@@ -71,7 +71,7 @@ testArray(tests, test => {
 `testArray(tests, func)`
 
 * tests - `object[]`
-	* name - `string` - Name of the test
+	* name - `string` - Name of the test.
 	* timeout - `number` - Timeout in ms for this specific test.
 	* before - `function` or `async function` - Execute a function prior to execution of the test.
 	* after - `function` or `async function` - Execute a function after the execution of the test.
