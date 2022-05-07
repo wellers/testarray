@@ -1,14 +1,21 @@
 {
 	"name": "@wellers/testarray",
 	"description": "Helper functions to help make testing with Node.js Test Runner module easier.",	
-	"version": "1.0.6",
-	"author": "Paul Welbourne",
+	"version": "1.0.7",
+	"author": "Paul Welbourne",		
 	"type": "module",
-	"license": "ISC",
-	"main": "dist/index.js",
+	"license": "ISC",		
+	"main": "dist/cjs/index.js",
+	"module": "dist/mjs/index.js",
+	"exports": {
+		".": {
+			"import": "./dist/mjs/index.js",
+			"require": "./dist/cjs/index.js"
+		}
+	},
 	"types": "src/index.d.ts",
 	"scripts": {
-		"build": "tsc",
+		"build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && sh scripts/fixup",
 		"test": "node --loader ts-node/esm test/index.test.ts"		
 	},
 	"dependencies": {
