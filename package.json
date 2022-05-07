@@ -1,7 +1,7 @@
 {
 	"name": "@wellers/testarray",
 	"description": "Helper functions to help make testing with Node.js Test Runner module easier.",	
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"author": "Paul Welbourne",
 	"type": "module",
 	"license": "ISC",
@@ -25,6 +25,8 @@
 		"test runner"
 	],
 	"bugs": {
-		"email" : "paulwelbourne@gmail.com"
-	}
+		"url": "https://github.com/wellers/testarray/issues",
+		"email": "paulwelbourne@gmail.com"
+	},
+	"homepage": "https://github.com/wellers/testarray#readme"
 }
