@@ -31,11 +31,11 @@ testArray(tests, ({ file, responses }: TestArguments) => new Promise<void>(async
 		const { stdout } = await exec(`node --loader ts-node/esm ${testPath}`);
 
 		if (responses.some(response => !stdout.includes(response))) {				
-			return reject();
+			return reject('Expected responses are not in stdout of tests.');
 		}
 	}
-	catch {
-		return reject();
+	catch ({ message }) {
+		return reject(message);
 	}	
 
 	return resolve();
