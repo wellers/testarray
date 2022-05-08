@@ -4,6 +4,14 @@ import { addOne } from "../src/index.js";
 
 const tests: Test[] = [
 	{
+		name: 'given num is a string, should throw an error',
+		args: {
+			// @ts-ignore
+			query: () => addOne('Hello, World'),
+			error: 'num must be of type number.'
+		}
+	},
+	{
 		name: 'given num is 0, result should be 1',
 		args: {
 			query: () => addOne(0),
