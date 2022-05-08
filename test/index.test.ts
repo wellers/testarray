@@ -41,8 +41,7 @@ const tests: Test[] = [
 
 type TestArguments = {
 	file: string,
-	only: boolean,
-	todo: boolean | string
+	only: boolean	
 };
 
 testArray(tests, ({ file, only }: TestArguments) => new Promise<void>(async (resolve, reject) => {
