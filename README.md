@@ -66,6 +66,9 @@ testArray(tests, test => {
 });
 ```
 
+More involved examples are available [here](https://github.com/wellers/testarray/tree/master/examples).
+
+
 ## API
 
 `testArray(tests, func)`
