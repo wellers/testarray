@@ -2,7 +2,7 @@
 import test from 'node:test';
 import Validator from 'fastest-validator';
 
-export type Test = {
+type Test = {
 	name: string,
 	timeout?: number,
 	before?: Function,
@@ -36,7 +36,7 @@ const schema = {
 const validator = new Validator();
 const validate = validator.compile(schema);
 
-export const testArray = (tests: Test[], func: Function) => {
+const testArray = (tests: Test[], func: Function) => {
 	tests.forEach(val => {
 		const results = validate(val);
 
@@ -77,5 +77,7 @@ export const testArray = (tests: Test[], func: Function) => {
 		});
 	});
 };
+
+export { testArray, Test }
 
 export default testArray;
