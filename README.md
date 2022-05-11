@@ -71,7 +71,7 @@ More involved examples are available [here](https://github.com/wellers/testarray
 
 ## API
 
-`testArray(tests, func)`
+**`testArray(tests, func)`**
 
 * tests - `object[]`
 	* name - `string` - Name of the test.
