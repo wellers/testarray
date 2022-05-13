@@ -71,7 +71,7 @@ More involved examples are available [here](https://github.com/wellers/testarray
 
 ## API
 
-**`testArray(tests, func)`** - On an array of tests, execute a function on each test's args.
+**`testArray(tests, func)`** - Given an array of tests, execute a function on each test's args.
 
 * tests - `object[]` - Array of tests.
 	* name - `string` - Name of the test.
