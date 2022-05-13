@@ -71,9 +71,9 @@ More involved examples are available [here](https://github.com/wellers/testarray
 
 ## API
 
-**`testArray(tests, func)`**
+**`testArray(tests, func)`** - On an array of tests, execute a function on each test's args.
 
-* tests - `object[]`
+* tests - `object[]` - Array of tests.
 	* name - `string` - Name of the test.
 	* timeout - `number` - Timeout in ms for this specific test.
 	* before - `function` or `async function` - Execute a function prior to execution of the test.

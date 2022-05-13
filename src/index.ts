@@ -49,7 +49,7 @@ const validator = new Validator();
 const validate = validator.compile(schema);
 
 /**
- * Excutes a function on each test args of an array of tests.
+ * On an array of tests, execute a function on each test's args.
  * @param {Test[]} tests - Array of tests.
  * @param {function} func - Receives the test args returned on test.
  */
