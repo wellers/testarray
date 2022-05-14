@@ -29,20 +29,24 @@ type Test = {
 type TestOptions = {
 	concurrency?: number,
 	only?: boolean,
-	skip?: boolean,	
+	skip?: boolean,
 	todo?: boolean | string
 }
 
 const schema = {
-	name: {	type: "string" },
+	name: { type: "string" },
 	timeout: { type: "number", optional: true },
 	before: { type: "function", optional: true },
 	after: { type: "function", optional: true },
 	concurrency: { type: "number", optional: true },
 	only: { type: "boolean", default: false },
 	skip: { type: "boolean", default: false },
-	todo: { type: "any", optional: true },
-	args: { type: "any" }
+	todo: [
+		{ type: "boolean", optional: true }, 
+		{ type: "string", optional: true }
+	],
+	args: { type: "any" },
+	$$strict: true
 };
 
 const validator = new Validator();
@@ -58,21 +62,21 @@ const testArray = (tests: Test[], func: Function) => {
 		const results = validate(val);
 
 		// if tests are not valid, validate will return an Array of errors
-		if (Array.isArray(results)) {			
+		if (Array.isArray(results)) {
 			const message = results.map(result => result.message).join('\r\n');
-			
+
 			throw Error(message);
 		}
-		
-		const { 
-			name, 
-			timeout, 
-			before, 
-			after, 
-			concurrency, 
-			only, 
-			skip, 
-			todo, 
+
+		const {
+			name,
+			timeout,
+			before,
+			after,
+			concurrency,
+			only,
+			skip,
+			todo,
 			args
 		} = val;
 
@@ -80,7 +84,7 @@ const testArray = (tests: Test[], func: Function) => {
 			concurrency,
 			only,
 			skip,
-			todo				
+			todo
 		};
 
 		test(name, options, async () => {
