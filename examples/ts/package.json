@@ -7,7 +7,7 @@
 		"link": "npm link ../..",
 		"test": "node --loader ts-node/esm test/index.test.ts"
 	},
-	"dependencies": {		
+	"dependencies": {
 		"@wellers/testarray": "latest"
 	},
 	"devDependencies": {

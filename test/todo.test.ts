@@ -7,7 +7,7 @@ const exec = promisify(child_process.exec);
 
 const tests: Test[] = [
 	{
-		name: 'given todo is set, should return todo',	
+		name: 'given todo is set, should return todo',
 		args: {
 			file: 'todos.test.ts',
 			responses: [
@@ -16,7 +16,7 @@ const tests: Test[] = [
 				'# todo 2'
 			]
 		}
-	}	
+	}
 ];
 
 type TestArguments = {
@@ -25,18 +25,18 @@ type TestArguments = {
 };
 
 testArray(tests, ({ file, responses }: TestArguments) => new Promise<void>(async (resolve, reject) => {
-	const testPath = path.join('./test', file);	
+	const testPath = path.join('./test', file);
 
 	try {
 		const { stdout } = await exec(`node --loader ts-node/esm ${testPath}`);
 
-		if (responses.some(response => !stdout.includes(response))) {				
+		if (responses.some(response => !stdout.includes(response))) {
 			return reject('Expected responses are not in stdout of tests.');
 		}
 	}
 	catch ({ message }) {
 		return reject(message);
-	}	
+	}
 
 	return resolve();
 }));

@@ -25,7 +25,7 @@ const tests: Test[] = [
 		}
 	},
 	{
-		name: 'only tests',		
+		name: 'only tests',
 		args: {
 			only: true,
 			file: 'only.test.ts'
@@ -33,7 +33,7 @@ const tests: Test[] = [
 	},
 	{
 		name: 'todo tests',
-		args: {			
+		args: {
 			file: 'todo.test.ts'
 		}
 	}
@@ -41,7 +41,7 @@ const tests: Test[] = [
 
 type TestArguments = {
 	file: string,
-	only: boolean	
+	only: boolean
 };
 
 testArray(tests, ({ file, only }: TestArguments) => new Promise<void>(async (resolve, reject) => {
@@ -51,9 +51,9 @@ testArray(tests, ({ file, only }: TestArguments) => new Promise<void>(async (res
 	try {
 		await exec(`node --loader ts-node/esm ${isOnlyTest}${testPath}`);
 	}
-	catch({ message }) {
+	catch ({ message }) {
 		return reject(message);
-	}	
+	}
 
-	return resolve();	
+	return resolve();
 }));

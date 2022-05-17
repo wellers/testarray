@@ -2,7 +2,7 @@
 const { strictEqual } = require('assert');
 const { testArray } = require('@wellers/testarray');
 const { emailValidation, isValidEmail } = require('../lib/index.js');
-	
+
 const tests = [
 	{
 		name: 'should return true when "email" contains multiple periods before the @ symbol',

@@ -12,4 +12,4 @@ const tests: Test[] = [
 	}
 ];
 
-testArray(tests, () => {});
+testArray(tests, () => { });

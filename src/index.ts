@@ -42,7 +42,7 @@ const schema = {
 	only: { type: "boolean", default: false },
 	skip: { type: "boolean", default: false },
 	todo: [
-		{ type: "boolean", optional: true }, 
+		{ type: "boolean", optional: true },
 		{ type: "string", optional: true }
 	],
 	args: { type: "any" },

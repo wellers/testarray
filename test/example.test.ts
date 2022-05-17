@@ -8,14 +8,14 @@ function addOne(num: number) {
 const tests: Test[] = [
 	{
 		name: 'given num is 0, result should be 1',
-		args: {			
+		args: {
 			num: 0,
 			result: 1
 		}
 	},
 	{
 		name: 'given num is 1, result should be 2',
-		args: {			
+		args: {
 			num: 1,
 			result: 2
 		}
@@ -29,16 +29,16 @@ const tests: Test[] = [
 	},
 	{
 		name: 'given num is 3, result should be 4',
-		args: {			
+		args: {
 			num: 3,
 			result: 4
 		}
-	}	
+	}
 ];
 
 type TestArguments = {
 	num: number,
-	result: number	
+	result: number
 }
 
 testArray(tests, (test: TestArguments) => {
