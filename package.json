@@ -33,7 +33,8 @@
 		"test",
 		"node:test",
 		"test runner",
-		"testing"
+		"testing",
+		"tdd"
 	],
 	"bugs": {
 		"url": "https://github.com/wellers/testarray/issues",
