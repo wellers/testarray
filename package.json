@@ -32,7 +32,8 @@
 	"keywords": [
 		"test",
 		"node:test",
-		"test runner"
+		"test runner",
+		"testing"
 	],
 	"bugs": {
 		"url": "https://github.com/wellers/testarray/issues",
