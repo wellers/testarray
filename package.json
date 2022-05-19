@@ -1,6 +1,6 @@
 {
 	"name": "@wellers/testarray",
-	"description": "Helper functions to help make testing with Node.js Test Runner module easier.",
+	"description": "Functions to help make testing with Node.js Test Runner module easier.",
 	"version": "1.1.3",
 	"author": "Paul Welbourne",
 	"type": "module",
