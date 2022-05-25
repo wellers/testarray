@@ -17,14 +17,20 @@ import Validator from 'fastest-validator';
 type Test = {
 	name: string,
 	timeout?: number,
-	before?: Function,
-	after?: Function,
+	before?: Before,
+	after?: After,
 	concurrency?: number,
 	only?: boolean,
 	skip?: boolean,
 	todo?: boolean | string,
 	args: any
 };
+
+type Before = (args: any) => void;
+
+type Func = (args: any) => void;
+
+type After = (args: any) => void;
 
 type TestOptions = {
 	concurrency?: number,
@@ -57,7 +63,7 @@ const validate = validator.compile(schema);
  * @param {Test[]} tests - Array of tests.
  * @param {function} func - Receives the test args returned on test.
  */
-const testArray = (tests: Test[], func: Function) => {
+const testArray = (tests: Test[], func: Func) => {
 	tests.forEach(val => {
 		const results = validate(val);
 
