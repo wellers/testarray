@@ -1,6 +1,6 @@
 // @ts-ignore
-import test from 'node:test';
-import Validator from 'fastest-validator';
+import test from "node:test";
+import Validator from "fastest-validator";
 
 /**
 * Definition of a test.
@@ -69,7 +69,7 @@ const testArray = (tests: Test[], func: Func) => {
 
 		// if tests are not valid, validate will return an Array of errors
 		if (Array.isArray(results)) {
-			const message = results.map(result => result.message).join('\r\n');
+			const message = results.map(result => result.message).join("\r\n");
 
 			throw Error(message);
 		}

@@ -5,7 +5,7 @@ Node.js v18 introduced the experimental Test Runner module under `node:test`.
 Writing tests which check the same function but with different inputs often results in writing the same tedious boilerplate code.
 
 ```js
-import test from 'node:test';
+import test from "node:test";
 import { strictEqual } from "assert";
 
 // function to test
