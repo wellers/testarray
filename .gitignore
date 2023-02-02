@@ -1,9 +1,3 @@
-.vs/
-bin/
-obj/
-Publish/
+node_modules/
 dist/
-
-*.user
-node_modules
 package-lock.json
