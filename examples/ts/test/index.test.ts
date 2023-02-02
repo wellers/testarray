@@ -2,12 +2,12 @@ import { strictEqual } from "assert";
 import { testArray, Test } from "@wellers/testarray";
 import { addOne } from "../src/index.js";
 
-const tests: Test[] = [
+const tests: Test<TestArguments>[] = [
 	{
 		name: "given num is a string, should throw an error",
 		args: {
 			// @ts-ignore
-			query: () => addOne("Hello, World"),
+			query: () => addOne("Hello, World"),			
 			error: "num must be of type number."
 		}
 	},
@@ -42,12 +42,18 @@ const tests: Test[] = [
 ];
 
 type TestArguments = {
+	query: () => {},
+	result?: number,
+	error?: string
+}
+
+type TestFunctionArguments = {
 	query: () => number,
 	result: number,
 	error: string
 }
 
-testArray(tests, (test: TestArguments) => {
+testArray(tests, (test: TestFunctionArguments) => {
 	let actual: number;
 	try {
 		actual = test.query();

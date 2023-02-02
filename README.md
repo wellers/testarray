@@ -71,7 +71,7 @@ More involved examples are available [here](https://github.com/wellers/testarray
 
 ## API
 
-**`testArray(tests, func)`** - Given an array of tests, execute a function on each test's args.
+**`testArray(tests, fn)`** - Given an array of tests, execute a function on each test's args.
 
 * tests - `object[]` - Array of tests.
 	* name - `string` - Name of the test.
@@ -82,5 +82,5 @@ More involved examples are available [here](https://github.com/wellers/testarray
 	* only - `boolean` - Only execute this test. `--test-only` command-line option is required when running tests to use this option.
 	* skip - `boolean` - Skip this test.
 	* todo - `boolean` or `string` - If truthy, the test marked as TODO. If a string is provided, that string is displayed in the test results as the reason why the test is TODO.
-	* args - `object`, `function` or `async function` - Definition of the test data which will be passed to the `func`.
-* func - `function(test)` or `async function(test)` - Receives the test args returned on test.
+	* args - `object`, `function` or `async function` - Definition of the test data which will be passed to the `fn`.
+* fn - `function(test)` or `async function(test)` - Receives the test args returned on test.
