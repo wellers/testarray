@@ -1,4 +1,3 @@
-// @ts-ignore
 import test from "node:test";
 import Validator from "fastest-validator";
 
@@ -14,23 +13,27 @@ import Validator from "fastest-validator";
 * @prop {boolean|string} [todo] - If truthy, the test marked as TODO. If a string is provided, that string is displayed in the test results as the reason why the test is TODO.
 * @prop {any} args - Definition of the test data which will be passed to func.
 */
-type Test = {
+type Test<T = any> = {
 	name: string,
 	timeout?: number,
-	before?: Before,
-	after?: After,
+	before?: Before<T>,
+	after?: After<T>,
 	concurrency?: number,
 	only?: boolean,
 	skip?: boolean,
 	todo?: boolean | string,
-	args: any
+	args: TestArguments<T>
 };
 
-type Before = (args: any) => void;
+type TestArguments<T> = T | (() => T) | (() => Promise<T>);
 
-type Func = (args: any) => void;
+type Before<T> = (args: T) => (any | Promise<any>);
 
-type After = (args: any) => void;
+interface TestFunction<T = any> {
+	(args: T): any | Promise<any>;
+} 
+
+type After<T> = (args: T) => (any | Promise<any>);
 
 type TestOptions = {
 	concurrency?: number,
@@ -59,62 +62,49 @@ const validator = new Validator();
 const validate = validator.compile(schema);
 
 /**
- * Given an array of tests, execute a function on each test's args.
+ * Given an array of tests, execute a function on each test's arguments.
  * @param {Test[]} tests - Array of tests.
- * @param {function} func - Receives the test args returned on test.
+ * @param {TestFunction} fn - Receives the test args returned on test.
  */
-const testArray = (tests: Test[], func: Func) => {
+function testArray<T = any>(tests: Test[], fn: TestFunction<T>) {
 	tests.forEach(val => {
 		const results = validate(val);
 
 		// if tests are not valid, validate will return an Array of errors
 		if (Array.isArray(results)) {
 			const message = results.map(result => result.message).join("\r\n");
-
 			throw Error(message);
 		}
 
-		const {
-			name,
-			timeout,
-			before,
-			after,
-			concurrency,
-			only,
-			skip,
-			todo,
-			args
-		} = val;
-
 		const options: TestOptions = {
-			concurrency,
-			only,
-			skip,
-			todo
+			concurrency: val.concurrency,
+			only: val.only,
+			skip: val.skip,
+			todo: val.todo
 		};
 
-		test(name, options, async () => {
-			if (timeout !== undefined) {
-				return new Promise((resolve) => setTimeout(resolve, timeout));
+		test(val.name, options, async () => {
+			if (val.timeout !== undefined) {
+				return new Promise((resolve) => setTimeout(resolve, val.timeout));
 			}
 
-			const test = args instanceof Function
-				? await args()
-				: args;
+			const test = val.args instanceof Function 
+				? await val.args() 
+				: val.args;
 
-			if (before !== undefined) {
-				await before(test);
+			if (val.before !== undefined) {
+				await val.before(test);
 			}
 
-			await func(test);
+			await fn(test);
 
-			if (after !== undefined) {
-				await after(test);
+			if (val.after !== undefined) {
+				await val.after(test);
 			}
 		});
 	});
-};
+}
 
-export { testArray, Test }
+export { testArray, Test, TestFunction }
 
 export default testArray;
