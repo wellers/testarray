@@ -1,7 +1,7 @@
 import { strictEqual } from "assert";
 import { testArray, Test } from "../src/index.js";
 
-const tests: Test[] = [
+const tests: Test<Args>[] = [
 	{
 		name: "given only is not set, should not run this test",
 		args: () => {
@@ -17,10 +17,10 @@ const tests: Test[] = [
 	}
 ];
 
-type TestArguments = {
+type Args = {
 	someArg: string
 };
 
-testArray(tests, (test: TestArguments) => {
+testArray<Args>(tests, test => {
 	strictEqual(test.someArg, "someValue");
 });

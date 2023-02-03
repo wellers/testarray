@@ -5,7 +5,7 @@ import { testArray, Test } from "../src/index.js";
 
 const exec = promisify(child_process.exec);
 
-const tests: Test[] = [
+const tests: Test<Args>[] = [
 	{
 		name: "arguments tests",
 		args: {
@@ -39,12 +39,12 @@ const tests: Test[] = [
 	}
 ]
 
-type TestArguments = {
+type Args = {
 	file: string,
-	only: boolean
+	only?: boolean
 };
 
-testArray(tests, ({ file, only }: TestArguments) => new Promise<void>(async (resolve, reject) => {
+testArray<Args>(tests, ({ file, only }) => new Promise<void>(async (resolve, reject) => {
 	const testPath = path.join("./test", file);
 	const isOnlyTest = only ? "--test-only " : "";
 

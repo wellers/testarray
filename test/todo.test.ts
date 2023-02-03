@@ -5,7 +5,7 @@ import { testArray, Test } from "../src/index.js";
 
 const exec = promisify(child_process.exec);
 
-const tests: Test[] = [
+const tests: Test<Args>[] = [
 	{
 		name: "given todo is set, should return todo",
 		args: {
@@ -19,12 +19,12 @@ const tests: Test[] = [
 	}
 ];
 
-type TestArguments = {
+type Args = {
 	file: string,
 	responses: string[]
 };
 
-testArray(tests, ({ file, responses }: TestArguments) => new Promise<void>(async (resolve, reject) => {
+testArray<Args>(tests, ({ file, responses }) => new Promise<void>(async (resolve, reject) => {
 	const testPath = path.join("./test", file);
 
 	try {

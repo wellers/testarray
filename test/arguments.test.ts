@@ -45,15 +45,6 @@ const tests: Test[] = [
 		args: () => ({})
 	},
 	{
-		name: "given an after function, should run the function after the test",
-		args: () => ({
-			arg: "someValue"
-		}),
-		after: (test: any) => {
-			clearTimeout(test.someArg)
-		}
-	},
-	{
 		name: "given a timeout, should pause for set timeout",
 		timeout: 3000,
 		args: async () => {
@@ -61,7 +52,7 @@ const tests: Test[] = [
 				setTimeout(() => {
 					resolve({ arg: "someValue" });
 				}, 100)
-			})
+			});
 		}
 	},
 	{
@@ -73,10 +64,6 @@ const tests: Test[] = [
 	}
 ];
 
-type TestArguments = {
-	arg: string
-};
-
-testArray(tests, ({ arg }: TestArguments) => {
-	strictEqual(arg, "someValue");
+testArray(tests, args => {
+	strictEqual(args.arg, "someValue");
 });

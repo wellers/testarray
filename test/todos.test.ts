@@ -1,6 +1,6 @@
 import { testArray, Test } from "../src/index.js";
 
-const tests: Test[] = [
+const tests: Test<Args>[] = [
 	{
 		name: "given todo is true, should return todo",
 		todo: true,
@@ -17,4 +17,8 @@ const tests: Test[] = [
 	}
 ];
 
-testArray(tests, () => { });
+type Args = {
+	arg: string
+}
+
+testArray<Args>(tests, () => { });

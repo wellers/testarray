@@ -5,7 +5,7 @@ function addOne(num: number) {
 	return num + 1;
 }
 
-const tests: Test[] = [
+const tests: Test<Args>[] = [
 	{
 		name: "given num is 0, result should be 1",
 		args: {
@@ -36,11 +36,11 @@ const tests: Test[] = [
 	}
 ];
 
-type TestArguments = {
+type Args = {
 	num: number,
 	result: number
 }
 
-testArray(tests, (test: TestArguments) => {
+testArray<Args>(tests, test => {
 	strictEqual(addOne(test.num), test.result);
 });
