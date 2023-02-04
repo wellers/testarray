@@ -13,7 +13,7 @@ import Validator from "fastest-validator";
 * @prop {boolean|string} [todo] - If truthy, the test marked as TODO. If a string is provided, that string is displayed in the test results as the reason why the test is TODO.
 * @prop {any} args - Definition of the test data which will be passed to func.
 */
-type Test<T = any> = {
+export type Test<T = any> = {
 	name: string,
 	timeout?: number,
 	before?: Before<T>,
@@ -29,7 +29,7 @@ type TestArguments<T> = T | (() => T) | (() => Promise<T>);
 
 type Before<T> = (args: T) => (any | Promise<any>);
 
-interface TestFunction<T = any> {
+export interface TestFunction<T = any> {
 	(args: T): any | Promise<any>;
 } 
 
@@ -66,7 +66,7 @@ const validate = validator.compile(schema);
  * @param {Test[]} tests - Array of tests.
  * @param {TestFunction} fn - Receives the test args returned on test.
  */
-function testArray<T = any>(tests: Test[], fn: TestFunction<T>) {
+export function testArray<T = any>(tests: Test[], fn: TestFunction<T>) {
 	tests.forEach(val => {
 		const results = validate(val);
 
@@ -104,7 +104,5 @@ function testArray<T = any>(tests: Test[], fn: TestFunction<T>) {
 		});
 	});
 }
-
-export { testArray, Test, TestFunction }
 
 export default testArray;
